@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Excel Converter | Emergent</title>
+
+
+    <style>
+        *, ::before, ::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 0 0% 3.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 0 0% 3.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 0 0% 3.9%;
+            --primary: 0 0% 9%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 0 0% 96.1%;
+            --secondary-foreground: 0 0% 9%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 0 0% 45.1%;
+            --accent: 0 0% 96.1%;
+            --accent-foreground: 0 0% 9%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 0 0% 89.8%;
+            --input: 0 0% 89.8%;
+            --ring: 0 0% 3.9%;
+            --radius: 0.5rem;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom right, #22d3ee, #3b82f6, #9333ea);
+            min-height: 100vh;
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: hsl(var(--foreground));
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            font-weight: 500;
+            font-size: 0.875rem;
+            height: 2.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            opacity: 0.9;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+
+        .main-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: hsl(var(--foreground));
+        }
+
+        .main-content p {
+            margin-bottom: 1rem;
+            color: hsl(var(--foreground));
+        }
+
+        .expandable-section {
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .expandable-header {
+            padding: 0.25rem 1rem;
+            background-color: hsl(var(--secondary));
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .expandable-content {
+            padding: 1rem;
+            display: none;
+        }
+
+        .expandable-content.expanded {
+            display: block;
+        }
+
+        .expandable-header .arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .expandable-header.expanded .arrow {
+            transform: rotate(180deg);
+        }
+
+        .benefits-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefits-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .workflow-steps {
+            counter-reset: step;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .workflow-steps li {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .workflow-steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.75rem;
+            height: 1.75rem;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PDF to Excel Converter</h1>
+            <a href="./Emergent _ Fullstack App.html" class="back-button">Back to Home</a>
+        </div>
+        
+        <div class="content">
+            <div class="main-content">
+                <h2>PDF to Excel Converter</h2>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Purpose <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Organizations often need to extract tabular data from PDF documents for analysis and reporting.</li>
+                            <li>This utility converts PDF tables into Excel spreadsheets with high accuracy, preserving the structure and formatting of the original data.</li>
+                            <li>It eliminates the need for manual data entry, reducing errors and saving significant time.</li>
+                            <li>The tool can process both scanned PDFs (using OCR) and digital PDFs with embedded text.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Work Flow <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ol class="workflow-steps">
+                            <li>Upload your PDF document</li>
+                            <li>Select the pages containing tables</li>
+                            <li>Choose extraction settings (OCR if needed)</li>
+                            <li>Preview the detected tables</li>
+                            <li>Adjust column/row settings if necessary</li>
+                            <li>Export to Excel format</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Benefits <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Saves hours of manual data entry and formatting</li>
+                            <li>Maintains high accuracy with complex table structures</li>
+                            <li>Supports batch processing of multiple PDF files</li>
+                            <li>Handles various PDF types including scanned documents</li>
+                            <li>Preserves formatting including merged cells and headers</li>
+                            <li>Exports to multiple formats (XLSX, CSV, Google Sheets)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Advanced Features <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>OCR technology for scanned PDF documents</li>
+                            <li>Smart table detection and boundary recognition</li>
+                            <li>Custom column mapping and data validation</li>
+                            <li>Automatic data type detection (numbers, dates, text)</li>
+                            <li>Multi-language support for international documents</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Supported Formats <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Input: PDF, scanned PDF, image-based PDF</li>
+                            <li>Output: Excel (.xlsx), CSV, Google Sheets</li>
+                            <li>Supports password-protected PDF files</li>
+                            <li>Compatible with PDF versions 1.0 to 2.0</li>
+                            <li>Handles compressed and encrypted documents</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Performance Metrics <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Processing speed: Up to 100 pages per minute</li>
+                            <li>Accuracy rate: 95%+ for standard table formats</li>
+                            <li>Memory usage: Optimized for large file processing</li>
+                            <li>Batch processing: Up to 1000 files simultaneously</li>
+                            <li>Cloud processing for enhanced performance</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Integration Options <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>REST API for seamless application integration</li>
+                            <li>Webhook support for automated workflows</li>
+                            <li>Direct integration with Google Drive and Dropbox</li>
+                            <li>Enterprise SSO and user management</li>
+                            <li>Custom branding and white-label solutions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Security & Compliance <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>End-to-end encryption for data protection</li>
+                            <li>GDPR and HIPAA compliance standards</li>
+                            <li>Secure cloud processing with data residency options</li>
+                            <li>Audit logs and activity monitoring</li>
+                            <li>Regular security assessments and certifications</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p>This efficient tool transforms PDF tables into editable Excel spreadsheets, enabling data analysis and reporting without the tedious process of manual data entry. Perfect for financial analysts, researchers, and business professionals who regularly work with PDF reports.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle expandable sections
+            const expandableSections = document.querySelectorAll('.expandable-header');
+            
+            expandableSections.forEach(section => {
+                section.addEventListener('click', function() {
+                    this.classList.toggle('expanded');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('expanded');
+                });
+            });
+            
+            // Expand the first section by default
+            if (expandableSections.length > 0) {
+                expandableSections[0].click();
+            }
+        });
+    </script>
+</body>
+</html>
+
+

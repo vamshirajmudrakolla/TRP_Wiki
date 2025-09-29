@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Maintenance | Emergent</title>
+
+
+
+    <style>
+        *, ::before, ::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 0 0% 3.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 0 0% 3.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 0 0% 3.9%;
+            --primary: 0 0% 9%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 0 0% 96.1%;
+            --secondary-foreground: 0 0% 9%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 0 0% 45.1%;
+            --accent: 0 0% 96.1%;
+            --accent-foreground: 0 0% 9%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 0 0% 89.8%;
+            --input: 0 0% 89.8%;
+            --ring: 0 0% 3.9%;
+            --radius: 0.5rem;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom right, #22d3ee, #3b82f6, #9333ea);
+            min-height: 100vh;
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: hsl(var(--foreground));
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            font-weight: 500;
+            font-size: 0.875rem;
+            height: 2.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            opacity: 0.9;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            border-radius: var(--radius);
+            
+            padding: 2rem;
+        }
+
+        .main-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: hsl(var(--foreground));
+        }
+
+        .main-content p {
+            margin-bottom: 1rem;
+            color: hsl(var(--foreground));
+        }
+
+        .expandable-section {
+            
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .expandable-header {
+            padding: 0.25rem 1rem;
+            background-color: hsl(var(--secondary));
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .expandable-content {
+            padding: 0.25rem 1rem;
+            display: none;
+        }
+
+        .expandable-content.expanded {
+            display: block;
+        }
+
+        .expandable-header .arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .expandable-header.expanded .arrow {
+            transform: rotate(180deg);
+        }
+
+        .benefits-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefits-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .workflow-steps {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .workflow-steps li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Software Maintenance</h1>
+            <a href="./Emergent _ Fullstack App.html" class="back-button">Back to Home</a>
+        </div>
+        
+        <div class="content">
+            <div class="main-content">
+                <h2>Software Maintenance</h2>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Purpose <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Bug fixes and issue resolution</li>
+                            <li>Performance optimization and monitoring</li>
+                            <li>Security updates and vulnerability patches</li>
+                            <li>Feature enhancements and updates</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Work Flow <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ol class="workflow-steps">
+                            <li>System health assessment and monitoring setup</li>
+                            <li>Issue identification and priority classification</li>
+                            <li>Root cause analysis and solution planning</li>
+                            <li>Code review and testing procedures</li>
+                            <li>Deployment and rollback strategies</li>
+                            <li>Documentation updates and knowledge transfer</li>
+                            <li>Continuous improvement and optimization</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Benefits <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Reduced downtime and system reliability</li>
+                            <li>Enhanced security and compliance</li>
+                            <li>Improved performance and user experience</li>
+                            <li>Cost-effective long-term software management</li>
+                            <li>Extended software lifecycle and ROI</li>
+                            <li>Proactive issue prevention and resolution</li>
+                        </ul>                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Technical Specifications <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Advanced processing algorithms for optimal performance</li>
+                            <li>Multi-threaded architecture for faster execution</li>
+                            <li>Cross-platform compatibility (Windows, Mac, Linux)</li>
+                            <li>Cloud-based processing with local fallback options</li>
+                            <li>Real-time progress monitoring and status updates</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        System Requirements <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Operating System: Windows 10+, macOS 10.14+, Ubuntu 18.04+</li>
+                            <li>Memory: Minimum 4GB RAM (8GB recommended)</li>
+                            <li>Storage: 2GB available disk space</li>
+                            <li>Network: Internet connection for cloud features</li>
+                            <li>Browser: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Security & Privacy <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>End-to-end encryption for all data transfers</li>
+                            <li>GDPR and CCPA compliant data handling</li>
+                            <li>No permanent storage of user documents</li>
+                            <li>Regular security audits and penetration testing</li>
+                            <li>SOC 2 Type II certified infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Integration & API <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>RESTful API with comprehensive documentation</li>
+                            <li>Webhook support for real-time notifications</li>
+                            <li>SDK available for popular programming languages</li>
+                            <li>Direct integration with cloud storage providers</li>
+                            <li>Enterprise SSO and user management systems</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Support & Training <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>24/7 customer support via chat, email, and phone</li>
+                            <li>Comprehensive documentation and video tutorials</li>
+                            <li>Live training sessions and webinars</li>
+                            <li>Dedicated account manager for enterprise clients</li>
+                            <li>Community forum and knowledge base</li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+                    </div>
+                </div>
+                
+                <p>Our Software Maintenance services ensure your applications remain secure, performant, and up-to-date. We provide comprehensive support including bug fixes, security patches, performance optimization, and feature enhancements to maximize your software investment and maintain optimal system performance.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle expandable sections
+            const expandableSections = document.querySelectorAll('.expandable-header');
+            
+            expandableSections.forEach(section => {
+                section.addEventListener('click', function() {
+                    this.classList.toggle('expanded');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('expanded');
+                });
+            });
+            
+            // Expand the first section by default
+            if (expandableSections.length > 0) {
+                expandableSections[0].click();
+            }
+        });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOCX to DXF Converter | Emergent</title>
+
+    <style>
+        *, ::before, ::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 0 0% 3.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 0 0% 3.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 0 0% 3.9%;
+            --primary: 0 0% 9%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 0 0% 96.1%;
+            --secondary-foreground: 0 0% 9%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 0 0% 45.1%;
+            --accent: 0 0% 96.1%;
+            --accent-foreground: 0 0% 9%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 0 0% 89.8%;
+            --input: 0 0% 89.8%;
+            --ring: 0 0% 3.9%;
+            --radius: 0.5rem;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom right, #22d3ee, #3b82f6, #9333ea);
+            min-height: 100vh;
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: hsl(var(--foreground));
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            font-weight: 500;
+            font-size: 0.875rem;
+            height: 2.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            opacity: 0.9;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+
+        .main-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: hsl(var(--foreground));
+        }
+
+        .main-content p {
+            margin-bottom: 1rem;
+            color: hsl(var(--foreground));
+        }
+
+        .expandable-section {
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .expandable-header {
+            padding: 0.25rem 1rem;
+            background-color: hsl(var(--secondary));
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .expandable-content {
+            padding: 1rem;
+            display: none;
+        }
+
+        .expandable-content.expanded {
+            display: block;
+        }
+
+        .expandable-header .arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .expandable-header.expanded .arrow {
+            transform: rotate(180deg);
+        }
+
+        .benefits-list {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefits-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .workflow-steps {
+            counter-reset: step;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .workflow-steps li {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .workflow-steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.75rem;
+            height: 1.75rem;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>DOCX to DXF Converter</h1>
+            <a href="./Emergent _ Fullstack App.html" class="back-button">Back to Home</a>
+        </div>
+        
+        <div class="content">
+            <div class="main-content">
+                <h2>DOCX to DXF Converter</h2>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Purpose <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Banking/Insurance industry is going through major IT transformation that involves huge volume of document format creation or migration (from existing legacy systems).</li>
+                            <li>This utility converts Microsoft Word Format (DOCX) or PDF to Exstream Dialogue Exchange Format (DXF). Utility can be used to convert one document at a time or can run a batch with multiple documents.</li>
+                            <li>This utility reduces the migration effort in designing the forms manually from the mockups copying the verbiage/content one by one.</li>
+                            <li>This utility can be configured to handle any version of Exstream by simply updating the XSL file provided by OpenText Exstream.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Work Flow <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ol class="workflow-steps">
+                            <li>Upload your DOCX or PDF document</li>
+                            <li>Configure conversion settings</li>
+                            <li>Start the conversion process</li>
+                            <li>Review the generated DXF output</li>
+                            <li>Download the converted files</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Benefits <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Significantly reduces manual effort in document migration</li>
+                            <li>Maintains formatting and layout integrity during conversion</li>
+                            <li>Supports batch processing for multiple documents</li>
+                            <li>Provides detailed conversion statistics and error reporting</li>
+                            <li>Configurable to work with different versions of Exstream</li>
+                            <li>Streamlines the transition from legacy document systems</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Technical Specifications <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Supports DOCX and PDF input formats</li>
+                            <li>Generates DXF output compatible with Exstream</li>
+                            <li>Configurable XSL transformation templates</li>
+                            <li>Batch processing capabilities for high-volume conversions</li>
+                            <li>Error handling and validation mechanisms</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        System Requirements <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Windows 10 or later / Linux Ubuntu 18.04+</li>
+                            <li>Minimum 4GB RAM (8GB recommended)</li>
+                            <li>Java Runtime Environment 8 or higher</li>
+                            <li>Microsoft Office compatibility layer</li>
+                            <li>Network access for license validation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Configuration Options <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Custom XSL template selection</li>
+                            <li>Output format preferences</li>
+                            <li>Batch size and processing limits</li>
+                            <li>Error handling and logging levels</li>
+                            <li>Integration with existing document management systems</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Support & Documentation <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Comprehensive user manual and API documentation</li>
+                            <li>Video tutorials and training materials</li>
+                            <li>24/7 technical support for enterprise customers</li>
+                            <li>Regular software updates and patches</li>
+                            <li>Community forum and knowledge base</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="expandable-section">
+                    <div class="expandable-header">
+                        Pricing & Licensing <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="expandable-content">
+                        <ul class="benefits-list">
+                            <li>Flexible licensing options: per-user, per-server, or enterprise</li>
+                            <li>Volume discounts for large deployments</li>
+                            <li>Free trial period with full functionality</li>
+                            <li>Maintenance and support packages available</li>
+                            <li>Custom pricing for specialized requirements</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p>This powerful utility helps banking and insurance companies streamline their document migration process, saving significant time and resources while ensuring accurate conversion from Microsoft Word or PDF formats to Exstream's DXF format.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle expandable sections with accordion behavior
+            const expandableSections = document.querySelectorAll('.expandable-header');
+            
+            expandableSections.forEach(section => {
+                section.addEventListener('click', function() {
+                    // Close all other sections first
+                    expandableSections.forEach(otherSection => {
+                        if (otherSection !== this) {
+                            otherSection.classList.remove('expanded');
+                            const otherContent = otherSection.nextElementSibling;
+                            otherContent.classList.remove('expanded');
+                        }
+                    });
+                    
+                    // Toggle the clicked section
+                    this.classList.toggle('expanded');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('expanded');
+                });
+            });
+            
+            // Expand the first section by default
+            if (expandableSections.length > 0) {
+                expandableSections[0].click();
+            }
+        });
+    </script>
+</body>
+</html>
+
+
