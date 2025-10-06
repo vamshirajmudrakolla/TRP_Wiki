@@ -4785,7 +4785,7 @@ code {
 @media (min-width: 1280px) {
 
   .xl\\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 @media (min-width: 1536px) {
@@ -29287,7 +29287,7 @@ const EducationalCard = ({
           children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxDEV)(_ui_button__WEBPACK_IMPORTED_MODULE_1__.Button, {
             onClick: handleReadMore,
             className: "flex-1 bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-200",
-            onClick: function() { window.location.href = `./detail-page-${card.id}.html`; },
+            onClick: function() { window.open(`./detail-page-${card.id}.html`, '_blank', 'noopener,noreferrer'); },
             children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxDEV)(lucide_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
               className: "w-4 h-4 mr-2"
             }, void 0, false, {
@@ -29523,11 +29523,15 @@ const Header = ({
           children: filesList.map((file, index) => {
             const IconComponent = file.icon;
             const isExpanded = expandedItems[index];
+            const isCyber = (file.name || '').toLowerCase().includes('cybersecurity_handbook');
+            const targetUrl = isCyber ? 'https://www.google.com' : './detail-page-' + (index + 1) + '.html';
             return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("div", {
               className: "space-y-1",
-              children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("div", {
-                className: "flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 cursor-pointer group",
-                onClick: () => file.hasChildren ? toggleExpanded(index) : null,
+              children: [(!file.hasChildren ? /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("a", {
+                href: targetUrl,
+                target: isCyber ? "_blank" : undefined,
+                rel: isCyber ? "noopener noreferrer" : undefined,
+                className: "flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 group block",
                 children: [file.hasChildren && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("div", {
                   className: "flex-shrink-0",
                   children: isExpanded ? /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)(lucide_react__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -29586,7 +29590,68 @@ const Header = ({
                 fileName: _jsxFileName,
                 lineNumber: 152,
                 columnNumber: 19
-              }, undefined), file.hasChildren && isExpanded && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("div", {
+              }, undefined) : /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("div", {
+                className: "flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 cursor-pointer group",
+                onClick: () => toggleExpanded(index),
+                children: [file.hasChildren && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("div", {
+                  className: "flex-shrink-0",
+                  children: isExpanded ? /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)(lucide_react__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                    className: "w-4 h-4 text-gray-500 transition-transform duration-200"
+                  }, void 0, false, {
+                    fileName: _jsxFileName,
+                    lineNumber: 160,
+                    columnNumber: 27
+                  }, undefined) : /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)(lucide_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                    className: "w-4 h-4 text-gray-500 transition-transform duration-200"
+                  }, void 0, false, {
+                    fileName: _jsxFileName,
+                    lineNumber: 162,
+                    columnNumber: 27
+                  }, undefined)
+                }, void 0, false, {
+                  fileName: _jsxFileName,
+                  lineNumber: 158,
+                  columnNumber: 23
+                }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("div", {
+                  className: `flex-shrink-0 ${!file.hasChildren ? 'ml-6' : ''}`,
+                  children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)(IconComponent, {
+                    className: "w-5 h-5 text-blue-600 group-hover:text-blue-700"
+                  }, void 0, false, {
+                    fileName: _jsxFileName,
+                    lineNumber: 169,
+                    columnNumber: 23
+                  }, undefined)
+                }, void 0, false, {
+                  fileName: _jsxFileName,
+                  lineNumber: 168,
+                  columnNumber: 21
+                }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("div", {
+                  className: "flex-1 min-w-0",
+                  children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("p", {
+                    className: "text-sm font-medium text-gray-800 truncate group-hover:text-blue-800",
+                    children: file.name
+                  }, void 0, false, {
+                    fileName: _jsxFileName,
+                    lineNumber: 174,
+                    columnNumber: 23
+                  }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("p", {
+                    className: "text-xs text-gray-500 mt-1",
+                    children: file.type
+                  }, void 0, false, {
+                    fileName: _jsxFileName,
+                    lineNumber: 177,
+                    columnNumber: 23
+                  }, undefined)]
+                }, void 0, true, {
+                  fileName: _jsxFileName,
+                  lineNumber: 173,
+                  columnNumber: 21
+                }, undefined)]
+              }, void 0, true, {
+                fileName: _jsxFileName,
+                lineNumber: 152,
+                columnNumber: 19
+              }, undefined)), file.hasChildren && isExpanded && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxDEV)("div", {
                 className: "ml-8 space-y-1 animate-in slide-in-from-top-2 duration-200",
                 children: file.children.map((child, childIndex) => {
                   const ChildIconComponent = child.icon;
